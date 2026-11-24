@@ -16,9 +16,11 @@ ENTRY = (
     "Unfortunately, production was in that 1%."
 )
 
-# Self-check the gate before writing: 1-180 characters, non-blank.
+# Self-check the gate before writing: 1-180 characters, non-blank,
+# and a single line — the brief caps the excuse at one line.
 assert 1 <= len(ENTRY) <= 180, "entry must be 1-180 characters"
 assert ENTRY.strip(), "entry must not be only whitespace"
+assert "\n" not in ENTRY and "\r" not in ENTRY, "entry must be one line"
 
 
 def main() -> None:
